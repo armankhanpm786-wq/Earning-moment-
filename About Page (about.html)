@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>About - Earning Moment</title>
+</head>
+<body style="font-family: Arial; padding:20px;">
+
+<h2>About Earning Moment</h2>
+
+<p>This is a simple earning platform where users can watch ads and earn coins.</p>
+
+<h3>Features</h3>
+<ul>
+  <li>Watch ads and earn coins</li>
+  <li>Simple withdrawal request system</li>
+  <li>User-friendly interface</li>
+</ul>
+
+<h3>Developer</h3>
+<p>Future Developer BD<br>Md Amir Hamza</p>
+
+</body>
+</html>
