@@ -2,192 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Telegram Mini App Earning System</title>
+  <title>Earning App</title>
 
-  <!-- Telegram Mini App -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-  <!-- GigaPub Ads -->
-  <script src="https://ad.gigapub.tech/script?id=3238"></script>
+  <!-- Ads Script -->
+  <script src="https://ad.gigapub.tech/script?id=6553"></script>
 
   <style>
-    body{
-      margin:0;
-      padding:0;
-      background:#0f172a;
-      font-family:Arial;
-      color:white;
-      text-align:center;
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f2f2f2;
+      padding-top: 50px;
     }
 
-    .box{
-      padding:20px;
+    .box {
+      background: white;
+      padding: 20px;
+      margin: auto;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
     }
 
-    .card{
-      background:#1e293b;
-      margin:15px;
-      padding:20px;
-      border-radius:15px;
+    button {
+      padding: 10px 20px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    button{
-      padding:12px 20px;
-      border:none;
-      border-radius:10px;
-      background:#22c55e;
-      color:white;
-      font-size:16px;
-      cursor:pointer;
-      margin-top:10px;
-    }
-
-    h1{
-      color:#38bdf8;
-    }
-
-    .balance{
-      font-size:30px;
-      margin:10px 0;
-      color:#facc15;
-    }
-
-    input{
-      width:90%;
-      padding:10px;
-      border-radius:10px;
-      border:none;
-      margin-top:10px;
+    h2 {
+      color: #333;
     }
   </style>
 </head>
+
 <body>
 
 <div class="box">
+  <h2>Earning App</h2>
 
-  <h1>💰 Earn Coins</h1>
+  <p>Coins: <span id="coins">0</span></p>
 
-  <div class="card">
-    <h2>Your Balance</h2>
-    <div class="balance" id="coins">0</div>
-  </div>
-
-  <div class="card">
-    <h2>🎥 Watch Ads</h2>
-    <p>Watch ad and earn 10 coins</p>
-
-    <button onclick="watchAd()">
-      Watch Ad
-    </button>
-  </div>
-
-  <div class="card">
-    <h2>🎁 Daily Bonus</h2>
-
-    <button onclick="dailyBonus()">
-      Claim Daily Bonus
-    </button>
-  </div>
-
-  <div class="card">
-    <h2>💸 Withdraw</h2>
-
-    <input type="text" id="wallet" placeholder="Bkash/Nagad Number">
-
-    <button onclick="withdraw()">
-      Withdraw Request
-    </button>
-  </div>
-
+  <button onclick="showAd()">Watch Ad & Earn</button>
 </div>
 
 <script>
+let coins = 0;
 
-let coins = localStorage.getItem("coins")
-  ? parseInt(localStorage.getItem("coins"))
-  : 0;
-
-document.getElementById("coins").innerText = coins;
-
-function saveCoins(){
-  localStorage.setItem("coins", coins);
-  document.getElementById("coins").innerText = coins;
-}
-
-function watchAd(){
-
+function showAd() {
   window.showGiga()
     .then(() => {
-
-      coins += 10;
-
-      saveCoins();
-
-      alert("✅ You earned 10 coins");
-
+      coins += 10; // reward
+      document.getElementById("coins").innerText = coins;
+      alert("You earned 10 coins!");
     })
-    .catch(e => {
-
+    .catch((e) => {
+      alert("Ad failed to load");
       console.log(e);
-
-      alert("❌ Ad not available");
-
     });
-
 }
-
-function dailyBonus(){
-
-  let lastClaim = localStorage.getItem("daily");
-
-  let today = new Date().toDateString();
-
-  if(lastClaim === today){
-
-    alert("⚠️ Already claimed today");
-
-    return;
-
-  }
-
-  coins += 50;
-
-  saveCoins();
-
-  localStorage.setItem("daily", today);
-
-  alert("🎁 Daily bonus added");
-
-}
-
-function withdraw(){
-
-  let wallet = document.getElementById("wallet").value;
-
-  if(wallet == ""){
-
-    alert("Enter wallet number");
-
-    return;
-
-  }
-
-  if(coins < 1000){
-
-    alert("Minimum 1000 coins needed");
-
-    return;
-
-  }
-
-  alert(
-    "Withdraw request sent\n" +
-    "Number: " + wallet
-  );
-
-}
-
 </script>
 
 </body>
