@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy - Earning Moment</title>
+</head>
+<body style="font-family: Arial; padding:20px;">
+
+<h2>Privacy Policy</h2>
+
+<p>Welcome to Earning Moment.</p>
+
+<p>We respect your privacy and are committed to protecting your data.</p>
+
+<h3>Information We Collect</h3>
+<ul>
+  <li>Basic usage data (coins, clicks)</li>
+  <li>No personal sensitive data is collected</li>
+</ul>
+
+<h3>How We Use Information</h3>
+<ul>
+  <li>To improve user experience</li>
+  <li>To show ads and rewards</li>
+</ul>
+
+<h3>Third-party Ads</h3>
+<p>We use third-party ad networks to show ads. They may use cookies.</p>
+
+<h3>Contact</h3>
+<p>Developer: Md Amir Hamza</p>
+
+</body>
+</html>
